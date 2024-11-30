@@ -11,7 +11,7 @@ app.get('/findMessage', (req, res)=>{
   return res.status(200).json({messages})
 })
 app.post('/message', (req, res) =>{
-  const [text, user] = req.body;
+  const {text, user} = req.body;
   if(!text || !user){
     return res.status(400).json({error : "Please provide a valid input"})
   }
