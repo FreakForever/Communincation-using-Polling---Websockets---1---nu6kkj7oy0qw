@@ -8,12 +8,12 @@ app.get("/", (_, res) => {
   res.send("Hello World!");
 });
 app.get('/findMessage', (req, res)=>{
-  res.status(200).json({messages})
+  return res.status(200).json({messages})
 })
 app.post('/message', (req, res) =>{
   const {text, user} = req.body;
   if(!text || !user){
-    res.status(400).json({error : "Please provide a valid input"})
+    return res.status(400).json({error : "Please provide a valid input"})
   }
     const newMessage = {
       user, 
@@ -21,7 +21,7 @@ app.post('/message', (req, res) =>{
       timestamp : new Date().toISOString(),
     }
     messages.push(newMessage)
-    res.status(200).json({message : newMessage})
+    return res.status(200).json({message : newMessage})
 
 })
 const messages = [];
