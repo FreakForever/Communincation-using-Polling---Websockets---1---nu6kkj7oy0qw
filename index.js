@@ -15,7 +15,6 @@ app.post('/message', (req, res) =>{
   if(!text || !user){
     res.status(400).json({error : "Please provide a valid input"})
   }
-  try{
     const newMessage = {
       user, 
       text,
@@ -23,10 +22,7 @@ app.post('/message', (req, res) =>{
     }
     messages.push(newMessage)
     res.status(200).json({message : newMessage})
-  }
-  catch(error){
-    res.status(500).json({error : "Internal server error."})
-  }
+
 })
 const messages = [];
 
