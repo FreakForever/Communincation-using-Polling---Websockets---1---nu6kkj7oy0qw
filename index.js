@@ -7,6 +7,9 @@ app.use(express.json());
 app.get("/", (_, res) => {
   res.send("Hello World!");
 });
+app.get('/findMessage', (req, res)=>{
+  res.status(200).json({messages})
+})
 app.post('/message', (req, res) =>{
   const {text, user} = req.body;
   if(!text || !user){
